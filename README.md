@@ -12,6 +12,6 @@ Requirements (XInput/XR scenes):
 Requirements (mobile scene):
 1. Set Scripting Backend to IL2CPP and check the target architecture for ARM64.
 
-For specific setups (Mobile iOS or Android / XR / Console PlayStation or XBox) you can check directly the documentation at https://www.interhaptics.com/doc/sdk/
+For specific setups (Mobile iOS or Android / XR / Console PlayStation or XBox) you can check directly the documentation at https://doc.wyvrn.com/docs/interhaptics-sdk/haptics-unity-sdk/
 
 If you need help or want to talk haptics, join us on Discord on this links https://discord.com/invite/93jU9nAX4f
