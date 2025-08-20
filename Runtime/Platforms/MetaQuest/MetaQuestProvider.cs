@@ -68,7 +68,18 @@ namespace Interhaptics.Platforms.XR
         [UnityEngine.Scripting.Preserve]
         public bool Init()
         {
-            bool res = MetaQuestProviderNative.ProviderInit();
+
+			// Check if a VR headset is present
+			if (!MetaQuestProviderNative.ProviderIsPresent())
+			{
+				if (HapticManager.DebugSwitch)
+				{
+					UnityEngine.Debug.LogWarning("No VR headset detected. MetaQuest haptic provider will not initialize.");
+				}
+				return false; // Return false to indicate initialization failed due to lack of headset
+			}
+
+			bool res = MetaQuestProviderNative.ProviderInit();
 
             if ((res) && (HapticManager.DebugSwitch))
             {

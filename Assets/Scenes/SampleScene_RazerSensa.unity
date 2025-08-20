@@ -265,7 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BodyPart: 203
   Side: 2
-  debugMode: 1
+  debugMode: 0
   targetIntensity: 1
 --- !u!65 &11181744
 BoxCollider:
@@ -1584,7 +1584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BodyPart: 202
   Side: 2
-  debugMode: 1
+  debugMode: 0
   targetIntensity: 1
 --- !u!65 &273631678
 BoxCollider:
@@ -4198,7 +4198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BodyPart: 204
   Side: 2
-  debugMode: 1
+  debugMode: 0
   targetIntensity: 1
 --- !u!65 &924613896
 BoxCollider:
@@ -4552,7 +4552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BodyPart: 400
   Side: 1
-  debugMode: 1
+  debugMode: 0
   targetIntensity: 1
 --- !u!65 &1125245997
 BoxCollider:
@@ -5522,7 +5522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BodyPart: 202
   Side: 1
-  debugMode: 1
+  debugMode: 0
   targetIntensity: 1
 --- !u!65 &1437725148
 BoxCollider:
@@ -5787,7 +5787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BodyPart: 203
   Side: 1
-  debugMode: 1
+  debugMode: 0
   targetIntensity: 1
 --- !u!65 &1515163732
 BoxCollider:
@@ -6182,7 +6182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BodyPart: 501
   Side: 2
-  debugMode: 1
+  debugMode: 0
   targetIntensity: 1
 --- !u!65 &1558210408
 BoxCollider:
@@ -6328,7 +6328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BodyPart: 201
   Side: 2
-  debugMode: 1
+  debugMode: 0
   targetIntensity: 1
 --- !u!65 &1562396059
 BoxCollider:
@@ -6940,7 +6940,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BodyPart: 201
   Side: 1
-  debugMode: 1
+  debugMode: 0
   targetIntensity: 1
 --- !u!65 &1682686455
 BoxCollider:
@@ -7147,7 +7147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BodyPart: 204
   Side: 1
-  debugMode: 1
+  debugMode: 0
   targetIntensity: 1
 --- !u!65 &1782716619
 BoxCollider:
@@ -7580,7 +7580,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BodyPart: 501
   Side: 1
-  debugMode: 1
+  debugMode: 0
   targetIntensity: 1
 --- !u!65 &1846442385
 BoxCollider:
@@ -8080,7 +8080,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BodyPart: 400
   Side: 2
-  debugMode: 1
+  debugMode: 0
   targetIntensity: 1
 --- !u!54 &2032951653
 Rigidbody:

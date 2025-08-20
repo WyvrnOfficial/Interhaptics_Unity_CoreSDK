@@ -1,3 +1,11 @@
+#2025.08.20
+# v1.8.0
+
++ Updated haptic engine to 1.13.2
++ Major rework of the iOS pipeline. This should not impact your project but please contact us if you face any issue
+
+---
+
 #2024.10.15
 # v1.7.2
 

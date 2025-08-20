@@ -49,7 +49,7 @@ namespace Interhaptics.HapticBodyMapping
 
         Bp_Chest = 340,
         Bp_Waist = 325,
-        Bp_Crane = 359,
+        Bp_Skull = 359,
         Bp_Neck = 358,
 
         Bp_Left_upper_arm = 212,
@@ -166,7 +166,7 @@ namespace Interhaptics.HapticBodyMapping
         Upper_arm = 300,
         Lower_arm = 301,
         Hand = 302,
-        Crane = 303,
+        Skull = 303,
         Neck = 304,
         Upper_leg = 305,
         Lower_leg = 306,

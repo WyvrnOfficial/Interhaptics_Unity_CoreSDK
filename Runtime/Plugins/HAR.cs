@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Interhaptics.HapticBodyMapping;
 using Interhaptics.Platforms.Mobile;
-using UnityCoreHaptics;
 using System.Collections;
 
 namespace Interhaptics.Core
@@ -215,6 +214,9 @@ namespace Interhaptics.Core
 				return;
 			}
 			double duration = HAR.GetVibrationLength(hMaterialId);
+			DebugAPIMode("Playing Haptic Effect id" + hMaterialId);
+			List<CommandData> targets = new List<CommandData> { new CommandData(Operator.Plus, GroupID.Palm, controllerSide) };
+			AddTargetToEvent(hMaterialId, targets);
 			SetEventIntensity(hMaterialId, intensity);
 			SetEventLoop(hMaterialId, loops);
 #if (UNITY_ANDROID && !ENABLE_METAQUEST && !ENABLE_OPENXR && !UNITY_EDITOR) || UNITY_IOS

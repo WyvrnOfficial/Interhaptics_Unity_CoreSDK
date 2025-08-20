@@ -39,9 +39,13 @@ namespace Interhaptics.Internal
                     {
                         return _instance;
                     }
-
-                    var instances = FindObjectsOfType<T>();
-                    var count = instances.Length;
+					T[] instances;
+#if UNITY_6_0_OR_NEWER
+					instances = Object.FindObjectsByType<T>(FindObjectsSortMode.None);
+#else
+					instances = Object.FindObjectsOfType<T>();
+#endif
+					var count = instances.Length;
                     if (count == 0)
                     {
                         Debug.Log($"[Singleton<{typeof(T)}>] An instance is needed in the scene and no existing instances were found, so a new instance will be created.");
@@ -67,10 +71,15 @@ namespace Interhaptics.Internal
         {
             if (_persistent)
             {
-                var instances = FindObjectsOfType<T>();
+				T[] instances;
+#if UNITY_6_0_OR_NEWER
+				instances = Object.FindObjectsByType<T>(FindObjectsSortMode.None);
+#else
+				instances = Object.FindObjectsOfType<T>();
+#endif
                 if (instances.Length > 1)
-                {
-                    Destroy(gameObject);
+				{
+					Destroy(gameObject);
                     return;
                 }
                 else

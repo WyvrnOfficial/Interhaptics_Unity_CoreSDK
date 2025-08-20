@@ -63,8 +63,6 @@ namespace Interhaptics
             Internal.HapticDeviceManager.DeviceInitLoop();
 #if UNITY_ANDROID && !ENABLE_METAQUEST && !ENABLE_OPENXR && !UNITY_EDITOR
             Platforms.Mobile.GenericAndroidHapticAbstraction.Initialize();
-#elif UNITY_IPHONE
-            UnityCoreHaptics.UnityCoreHapticsProxy.CreateEngine();
 #endif
 #endif
         }
@@ -128,11 +126,13 @@ namespace Interhaptics
             {
                 return;
             }
+#if !ENABLE_METAQUEST && !ENABLE_OPENXR
             if (Time.realtimeSinceStartup - lastCall < FIXED_TIMEFRAME)
             {
+                //Debug.Log("Skipping fixed time frame computation");
                 return;
             }
-
+#endif
             //Compute all haptics event
 #if !UNITY_IOS && (!UNITY_ANDROID || ENABLE_METAQUEST || ENABLE_OPENXR || UNITY_EDITOR)
             Core.HAR.ComputeAllEvents(Time.realtimeSinceStartup);

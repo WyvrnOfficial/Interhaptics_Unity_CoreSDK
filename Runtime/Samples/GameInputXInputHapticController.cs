@@ -74,7 +74,13 @@ namespace Interhaptics.Platforms.GameInput.Samples
 				}
 				hapticSource.isPlaying = false; // Reset the isPlaying state.
 			}
+#if UNITY_6_0_OR_NEWER
+			allAudioSources = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
+			allSpatialHapticSources = FindObjectsByType<SpatialHapticSource>(FindObjectsSortMode.None); 
+#else
 			allAudioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
+			allSpatialHapticSources = FindObjectsOfType(typeof(SpatialHapticSource)) as SpatialHapticSource[];
+#endif
 			foreach (AudioSource audioSource in allAudioSources)
 			{
 				if (audioSource.isPlaying)
@@ -84,7 +90,6 @@ namespace Interhaptics.Platforms.GameInput.Samples
 					break;
 				}
 			}
-			allSpatialHapticSources = FindObjectsOfType(typeof(SpatialHapticSource)) as SpatialHapticSource[];
 			foreach (SpatialHapticSource spatialHapticSource in allSpatialHapticSources)
 			{
 				if (spatialHapticSource.GetComponent<ObjectTransform>().buttonPressed)

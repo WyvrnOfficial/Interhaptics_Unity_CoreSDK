@@ -3,7 +3,6 @@ using Interhaptics.Core;
 using Interhaptics.HapticBodyMapping;
 using Interhaptics.Utils;
 using Interhaptics.Platforms.Mobile;
-using UnityCoreHaptics;
 
 namespace Interhaptics.Samples
 {
@@ -311,9 +310,6 @@ namespace Interhaptics.Samples
 		{
 #if UNITY_ANDROID && !UNITY_EDITOR
 			GenericAndroidHapticAbstraction.Cancel();
-#endif
-#if UNITY_IOS
-			UnityCoreHaptics.UnityCoreHapticsProxy.StopEngine();
 #endif
 			MobileControl.StopEffects();
 			HAR.MobileCancelHaptics();
