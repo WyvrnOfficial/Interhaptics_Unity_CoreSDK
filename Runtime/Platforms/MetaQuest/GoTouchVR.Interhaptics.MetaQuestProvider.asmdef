@@ -1,0 +1,25 @@
+{
+    "name": "GoTouchVR.Interhaptics.MetaQuestProvider",
+    "rootNamespace": "",
+    "references": [
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:e40ba710768534012815d3193fa296cb",
+        "GUID:33ea0c9c391413945ba4875f5da8847d",
+        "GUID:4af21795022437d4bb139a86514b9ff9"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.xr.oculus",
+            "expression": "1.0.0",
+            "define": "ENABLE_METAQUEST"
+        }
+    ],
+    "noEngineReferences": false
+}

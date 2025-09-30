@@ -1,12 +1,15 @@
 ﻿/* ​
-* Copyright (c) 2023 Go Touch VR SAS. All rights reserved. ​
+* Copyright (c) 2025 Wyvrn. All rights reserved. ​
 * ​
 */
 #if ENABLE_OPENXR
 using UnityEngine;
 using Interhaptics.HapticBodyMapping;
 using UnityEngine.InputSystem;
+using UnityEngine.XR;
 using UnityEngine.XR.OpenXR.Input;
+using UnityEngine.XR.Management;
+
 
 
 [assembly: UnityEngine.Scripting.AlwaysLinkAssembly]
@@ -63,12 +66,94 @@ namespace Interhaptics.Platforms.XR
         {
             return VERSION;
         }
-#endregion
+		#endregion
 
-        #region PROVIDER LOOP
-        [UnityEngine.Scripting.Preserve]
-        public bool Init()
-        {
+		#region PROVIDER LOOP
+
+		/// <summary>
+		/// Checks if XR (via XR Plugin Management) is initialized and the display subsystem is running.
+		/// </summary>
+		private bool IsXRActiveAndInitialized()
+		{
+			XRGeneralSettings xrSettings = XRGeneralSettings.Instance;
+			if (xrSettings == null || xrSettings.Manager == null)
+			{
+                Debug.Log("Failed 1");
+				return false;
+			}
+
+			// Check if XR plugin initialization is complete
+			if (!xrSettings.Manager.isInitializationComplete)
+			{
+                Debug.Log("Failed 2");
+				return false;
+			}
+
+			// Check if we have an active loader
+			XRLoader activeLoader = xrSettings.Manager.activeLoader;
+			if (activeLoader == null)
+			{
+                Debug.Log("Failed 3");
+				return false;
+			}
+
+			// Check if a display subsystem is running
+			XRDisplaySubsystem displaySubsystem = activeLoader.GetLoadedSubsystem<XRDisplaySubsystem>();
+			if (displaySubsystem == null)
+			{
+                Debug.Log("Failed 4");
+				return false;
+			}
+
+			return true;
+		}
+
+		/// <summary>
+		/// Checks if the current active XR loader is specifically OpenXR.
+		/// </summary>
+		private bool IsOpenXRLoaderActive()
+		{
+			XRGeneralSettings xrSettings = XRGeneralSettings.Instance;
+			if (xrSettings == null || xrSettings.Manager == null)
+			{
+				return false;
+			}
+
+			XRLoader activeLoader = xrSettings.Manager.activeLoader;
+			if (activeLoader == null)
+			{
+				return false;
+			}
+
+			// Typical OpenXR loader name is something like "OpenXR Loader",
+			// but you can adjust as needed
+            Debug.Log("activeLoader.name: " + activeLoader.name);
+			return activeLoader.name.Contains("Open XR");
+		}
+
+		[UnityEngine.Scripting.Preserve]
+		public bool Init()
+		{
+			// 1) Check if XR is active
+			if (!IsXRActiveAndInitialized())
+			{
+				if (HapticManager.DebugSwitch)
+				{
+					Debug.LogWarning("OpenXRProvider: XR is not active or the XR display subsystem is not running.");
+				}
+				return false;
+			}
+
+			// 2) Check if the active loader is OpenXR
+			if (!IsOpenXRLoaderActive())
+			{
+				if (HapticManager.DebugSwitch)
+				{
+					Debug.LogWarning("OpenXRProvider: The active XR loader is not OpenXR. Initialization aborted.");
+				}
+				return false;
+			}
+
             if (UnityEngine.XR.InputDevices.GetDeviceAtXRNode(UnityEngine.XR.XRNode.Head) == null)
             {
                 UnityEngine.Debug.Log("XR HMD not found");
@@ -83,6 +168,8 @@ namespace Interhaptics.Platforms.XR
             }
             return true;
         }
+
+
 
         [UnityEngine.Scripting.Preserve]
         public bool IsPresent()

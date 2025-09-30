@@ -1,6 +1,6 @@
 {
   "name": "com.interhaptics.core_sdk",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "displayName": "Interhaptics Core SDK",
   "description": "Interhaptics Unity SDK is a unique SDK for haptics with embedded APIs connecting various haptic devices, allowing users to directly render haptic files designed with the Haptic Composer.",
   "unity": "2019.1",

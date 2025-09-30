@@ -1,6 +1,6 @@
 ﻿
 /* ​
-* Copyright (c) 2023 Go Touch VR SAS. All rights reserved. ​
+* Copyright (c) 2025 Wyvrn. All rights reserved. ​
 * ​
 */
 

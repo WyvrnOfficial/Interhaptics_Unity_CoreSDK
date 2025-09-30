@@ -1,4 +1,11 @@
 #2025.08.20
+# v1.8.1
+
++ Updated of the OpenXR and MetaQuest pipeline
+
+---
+
+#2025.08.20
 # v1.8.0
 
 + Updated haptic engine to 1.13.2

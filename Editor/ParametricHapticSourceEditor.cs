@@ -1,3 +1,8 @@
+﻿/* ​
+* Copyright (c) 2025 Wyvrn. All rights reserved. ​
+* ​
+*/
+
 namespace Interhaptics.Editor
 {
 	using UnityEditor;
